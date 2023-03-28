@@ -7,12 +7,10 @@ import { BASE_URL } from "../util/config/base.config"
   providedIn: 'root'
 })
 
-export class PostService{
+export class TokenService{
   constructor(private httpClient: HttpClient) {}
-  public GetAllPost(skip: number, limit: number): Observable<any>{
-    let params = new HttpParams().set("skip", skip).set("limit", limit)
-    return this.httpClient.get(`${BASE_URL}api/v1/post/all`, {params: params})
+  public RefreshToken(refresh: string): Observable<any>{
+    return this.httpClient.post(`${BASE_URL}api/v1/user/refresh`, {refresh: refresh})
   }
 }
-
 

@@ -10,6 +10,10 @@ import { HeaderComponent } from './common/header/header.component'
 import { HeaderInterceptor } from './util/interceptors/header.interceptor';
 import { PostListComponent } from './post/post-list/post-list.component';
 import { PostDetailComponent } from './post/post-detail/post-detail.component';
+import { HomeComponent } from './home/home.component';
+import { MyProfileComponent } from './user/my-profile/my-profile.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +22,10 @@ import { PostDetailComponent } from './post/post-detail/post-detail.component';
     HeaderComponent,
     PostListComponent,
     PostDetailComponent,
+    HomeComponent,
+    MyProfileComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

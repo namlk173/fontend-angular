@@ -1,0 +1,39 @@
+<form class="my-5 px-3">
+  <div class="text-center mb-3 text-primary h5">LOGIN</div>
+  <div class="row mb-3">
+    <label for="email" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        [(ngModel)]="email"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="password" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        [(ngModel)]="password"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+  </div>
+  <div class="text-danger my-2">
+    {{ authResponseErr }}
+  </div>
+  <ng-container>
+    <button type="submit" class="btn btn-primary" (click)="onLogin()">
+      Sign in
+    </button>
+    <div class="col my-3">
+      <span class="">You don't have any account? </span
+      ><a class="btn btn-link" [routerLink]="['/auth/register']">Register</a>
+    </div>
+  </ng-container>
+</form>

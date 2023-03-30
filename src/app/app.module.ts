@@ -14,6 +14,8 @@ import { HomeComponent } from './home/home.component';
 import { MyProfileComponent } from './user/my-profile/my-profile.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { CreatePostComponent } from './post/create-post/create-post.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,14 @@ import { RegisterComponent } from './auth/register/register.component';
     MyProfileComponent,
     LoginComponent,
     RegisterComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularEditorModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

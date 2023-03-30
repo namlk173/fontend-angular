@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http"
 import { Injectable } from "@angular/core"
+import { JwtHelperService } from "@auth0/angular-jwt"
 import { Observable } from "rxjs"
 import { User } from "../model/user.model"
 import { BASE_URL } from "../util/config/base.config"
@@ -37,12 +38,18 @@ export class UserService {
     return true
   }
 
+  GetCurrentUser(): any {
+    const token = localStorage.getItem("token")
+    const helper = new JwtHelperService()
+    return helper.decodeToken((JSON.parse(token as string) as any).access) as Profile
+  }
+
   GetProfile(): Observable<Profile> {
     return this.httpClient.get<Profile>(`${BASE_URL}api/v1/user/profile`)
   }
 
   ChangeProfile(user: Profile) {
-    return this.httpClient.put(`${BASE_URL}api/v1/user/profile/change`, {...user})
+    return this.httpClient.put(`${BASE_URL}api/v1/user/profile/change`, { ...user })
   }
 }
 

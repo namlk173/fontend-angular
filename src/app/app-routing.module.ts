@@ -4,6 +4,7 @@ import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './home/home.component';
+import { CreatePostComponent } from './post/create-post/create-post.component';
 import { PostListComponent } from './post/post-list/post-list.component';
 import { MyProfileComponent } from './user/my-profile/my-profile.component';
 
@@ -25,6 +26,9 @@ const routes: Routes = [
       },
       {
         path: "my-profile", component: MyProfileComponent
+      },
+      {
+        path: "create-post", component: CreatePostComponent
       },
     ]
   },

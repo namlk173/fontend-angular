@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="create-form">
+    <header class="header">
+      <h2 class="text-success">Create Post</h2>
+    </header>
+    <div>
+      <div class="form-group px-5 py-3">
+        <label for="title"><strong>Title</strong></label>
+        <input
+          type="text"
+          id="title"
+          placeholder="enter your title post here..."
+          class="form-control"
+          [(ngModel)]="post.title"
+        />
+      </div>
+      <div class="px-5 py-3">
+        <label><strong>Description</strong></label>
+        <angular-editor
+          [(ngModel)]="post.content"
+          [config]="config"
+        ></angular-editor>
+      </div>
+      <div class="text-center text-success mt-2">{{successResponse}}</div>
+      <div class="text-center text-danger mt-2">{{errorResponse}}</div>
+      <div class="text-center my-3 pb-5">
+        <button class="btn btn-success" (click)="onCreatePost()">Create</button>
+      </div>
+    </div>
+  </div>
+</div>

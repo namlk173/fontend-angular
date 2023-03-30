@@ -2,7 +2,7 @@
   <div style="flex: 1" class="d-flex justify-content-center">
     <a class="navbar-brand" [routerLink]="['/home']">Logo</a>
   </div>
-  <div style="flex: 2; min-width: 390px;">
+  <div style="flex: 2; min-width: 390px">
     <form class="form-inline d-flex">
       <input
         class="form-control mr-sm-2"
@@ -16,7 +16,18 @@
     </form>
   </div>
   <div class="d-flex gap-3 justify-content-center" style="flex: 1">
-    <a [routerLink]="['my-profile']" class="mt-2">Profile</a>
+    <a [routerLink]="['/home/create-post']" class="mt-1">
+      <button class="btn btn-sm btn-outline text-success">
+        <i class="fa-sharp fa-solid fa-plus"></i>
+        Create
+      </button>
+    </a>
+    <a [routerLink]="['/home/my-profile']" class="mt-1">
+      <button class="btn btn-sm btn-outline text-info">
+        <i class="fa fa-user"></i>
+        Profile
+      </button>
+    </a>
     <button class="btn btn-warning" (click)="onLogout()">Logout</button>
   </div>
 </nav>

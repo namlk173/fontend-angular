@@ -4,13 +4,14 @@ export interface Post{
   _id: string,
   title: string,
   content: string,
+  image: string,
   owner: {
     _id: string,
     username: string,
     email: string,
   },
-  created_at: Time,
-  updated_at: Time,
+  created_at: string,
+  updated_at: string,
   is_deleted: false
 }
 

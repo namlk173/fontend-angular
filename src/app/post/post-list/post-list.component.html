@@ -1,4 +1,12 @@
-<app-post-detail *ngFor="let post of posts" [post]="post"></app-post-detail>
-<div class="text-center my-5">
+<app-post-detail *ngFor="let post of posts" [post]="post" [user]="user"></app-post-detail>
+<p class="text-warning text-center mt-2">
+  {{errorResponse}}
+</p>
+<div class="text-center my-5" *ngIf="posts.length>0; else noposts">
   <button class="btn btn-warning" (click)="onLoadMore()">Load more</button>
 </div>
+<ng-template #noposts>
+  <h2 class="text-center mt-5 text-warning">Not found any post</h2>
+</ng-template>
+
+

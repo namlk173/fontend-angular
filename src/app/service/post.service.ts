@@ -16,7 +16,19 @@ export class PostService {
   }
 
   public CreatePost(post: Partial<Post>) {
-    return this.httpClient.post(`${BASE_URL}api/v1/post/create`, { ...post })
+    const formPostData = new FormData()
+    Object.entries(post).forEach(([key, value]) => {
+      if (key !== "owner") {
+        formPostData.append(key, value as any)
+      }
+    })
+    console.log(formPostData)
+    return this.httpClient.post(`${BASE_URL}api/v1/post/create`, formPostData)
+  }
+
+  public DeletePost(_id: string) {
+    let params = new HttpParams().set("_id", _id)
+    return this.httpClient.delete(`${BASE_URL}api/v1/post/delete`, { params: params })
   }
 }
 

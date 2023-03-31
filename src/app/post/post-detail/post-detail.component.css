@@ -38,8 +38,12 @@ body {
   background-color: #fafafa !important;
 }
 
-.u-shadow-v18 {
-  box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.15);
+.media-body{
+  transition: all 0.2s linear;
+}
+
+.media-body:hover{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .g-color-gray-dark-v4 {
@@ -62,6 +66,7 @@ body {
 
 .post-image{
   max-width: 100%;
+  max-height: 400px;
 }
 
 .list-inline-item .ml-3{

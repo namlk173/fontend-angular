@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BASE_URL } from 'src/app/util/config/base.config';
 
 @Component({
@@ -9,6 +9,8 @@ import { BASE_URL } from 'src/app/util/config/base.config';
 export class PostDetailComponent implements OnInit {
   @Input() post: any
   @Input() user: any
+
+  @Output() deletePost = new EventEmitter<string>()
 
   baseURL = BASE_URL
   showMore: boolean = false

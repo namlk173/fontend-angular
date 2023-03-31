@@ -2,11 +2,31 @@
   <div class="row">
     <div class="col-md-3 border-right">
       <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-        <img
-          class="rounded-circle mt-5"
-          width="150px"
-          src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-        /><span class="font-weight-bold">{{ user.username }}</span
+        <div>
+          <label class="d-flex justify-content-center mb-3" for="avatar">
+            <img
+              [src]="avatar || 'https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg'"
+              class="rounded-lg"
+              alt="your avatar"
+              style="width: 150px"
+            />
+          </label>
+          <div class="d-flex justify-content-center">
+            <div class="btn btn-rounded btn-outline btn-sm">
+              <label class="form-label text-primary m-1" for="avatar"
+                >Update avatar</label
+              >
+              <input
+                type="file"
+                class="form-control d-none"
+                id="avatar"
+                (change)="onSelectAvatar($event.target)"
+                accept="image/*"
+              />
+            </div>
+          </div>
+        </div>
+        <span class="font-weight-bold mt-4">{{ user.username }}</span
         ><span class="text-black-50">{{ user.email }}</span
         ><span> </span>
       </div>
@@ -95,13 +115,17 @@
           </div>
         </div>
         <div>
-          <p class="text-center mt-3 text-success">{{responseSuccess}}</p>
+          <p class="text-center mt-3 text-success">{{ responseSuccess }}</p>
         </div>
         <div>
-          <p class="text-center mt-3 text-danger">{{responseErr}}</p>
+          <p class="text-center mt-3 text-danger">{{ responseErr }}</p>
         </div>
         <div class="mt-5 text-center">
-          <button class="btn btn-primary profile-button" type="button" (click)="onChangeProfile()">
+          <button
+            class="btn btn-primary profile-button"
+            type="button"
+            (click)="onChangeProfile()"
+          >
             Save Profile
           </button>
         </div>

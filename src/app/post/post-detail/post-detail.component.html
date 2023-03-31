@@ -5,7 +5,11 @@
         <div class="position-relative">
           <img
             class="d-flex g-width-50 g-height-50 rounded-circle mr-5 avatar"
-            src="https://bootdey.com/img/Content/avatar/avatar7.png"
+            [src]="
+              post.owner.avatar_url
+                ? baseURL + post.owner.avatar_url
+                : 'https://bootdey.com/img/Content/avatar/avatar7.png'
+            "
             alt="Image Description"
           />
         </div>
@@ -32,7 +36,7 @@
                 : post.content
             "
           ></p>
-          <ul class="list-inline my-0 d-flex justify-content-between">
+          <ul class="list-inline my-0 d-flex justify-content-between flex-wrap">
             <li
               class="list-inline-item g-mr-20 show-more"
               *ngIf="post.content.length > 200"
@@ -57,15 +61,60 @@
                 </button>
               </a>
 
-              <a href="#!">
-                <button class="btn btn-outline ml-3 text-danger">
-                  <i class="fa fa-trash g-pos-rel g-top-1 g-mr-3"></i>
-                  Delete
-                </button>
-              </a>
+              <!-- <a href="#!"> -->
+              <button
+                class="btn btn-outline ml-3 text-danger"
+                [attr.data-target]="'#post' + post._id"
+                data-toggle="modal"
+              >
+                <i class="fa fa-trash g-pos-rel g-top-1 g-mr-3"></i>
+                Delete
+              </button>
+              <!-- </a> -->
             </li>
           </ul>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  [id]="'post' + post._id"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger">Delete post</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <strong>{{ post.title }}</strong>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          (click)="deletePost.emit(post._id)"
+        >
+          Delete
+        </button>
       </div>
     </div>
   </div>

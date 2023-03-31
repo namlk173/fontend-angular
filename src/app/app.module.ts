@@ -16,6 +16,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { CreatePostComponent } from './post/create-post/create-post.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { MessageComponent } from './common/message/message.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     MyProfileComponent,
     LoginComponent,
     RegisterComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

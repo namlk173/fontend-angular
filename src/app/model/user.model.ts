@@ -11,4 +11,6 @@ export interface User {
   education?: string,
   country?: string,
   state?: string,
+  avatar_url?: string,
+  avatar_file?: File,
 }

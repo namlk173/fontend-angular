@@ -1,10 +1,9 @@
-import { Time } from "@angular/common";
-
-export interface Post{
+export interface Post {
   _id: string,
   title: string,
   content: string,
   image: string,
+  file?: File,
   owner: {
     _id: string,
     username: string,

@@ -49,7 +49,12 @@ export class UserService {
   }
 
   ChangeProfile(user: Profile) {
-    return this.httpClient.put(`${BASE_URL}api/v1/user/profile/change`, { ...user })
+    const formUserData = new FormData()
+    Object.entries(user).forEach(([key, value]) => {
+      formUserData.append(key, value)
+    })
+
+    return this.httpClient.put(`${BASE_URL}api/v1/user/profile/change`, formUserData )
   }
 }
 

@@ -14,7 +14,7 @@ export class CreatePostComponent implements OnInit {
   post: Partial<Post> = {}
   successResponse: string = ""
   errorResponse: string = ""
-
+  photoURL: string = ""
 
   config: AngularEditorConfig = {
     editable: true,
@@ -57,6 +57,17 @@ export class CreatePostComponent implements OnInit {
       },
       (err: HttpErrorResponse) => this.errorResponse = err.error.message
     )
+  }
+
+  onSelectPhoto(target: any) {
+    if (target.files) {
+      this.post.file = target.files[0]
+      var reader = new FileReader()
+      reader.readAsDataURL(target.files[0])
+      reader.onload = (event: any) => {
+        this.photoURL = event.target.result
+      }
+    }
   }
 
 }

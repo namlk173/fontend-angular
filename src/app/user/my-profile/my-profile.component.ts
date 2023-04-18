@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/model/user.model';
+import { User } from 'src/app/model/user.model';;
 import { UserService } from 'src/app/service/user.service';
 import { BASE_URL } from 'src/app/util/config/base.config';
 
@@ -13,8 +13,7 @@ type Profile = Partial<Omit<User, "password">>
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
-  responseErr: string = ""
-  responseSuccess: string = ""
+  response: { status?: string, message?: string } = {}
   baseURL = BASE_URL
   avatar: string | undefined = ""
 
@@ -37,8 +36,11 @@ export class MyProfileComponent implements OnInit {
 
   onChangeProfile() {
     this.userService.ChangeProfile(this.user).subscribe(
-      (res: any) => this.responseSuccess = res.message,
-      (err: HttpErrorResponse) => console.log(err)
+      (res: any) => {
+        this.response = { message: res.message, status: "success" }
+        this.router.navigate(["/home"])
+      },
+      (err: HttpErrorResponse) => this.response = { message: err.error.message, status: "warning" }
     )
   }
 

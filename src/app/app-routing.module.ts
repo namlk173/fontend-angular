@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { CreatePostComponent } from './post/create-post/create-post.component';
 import { PostListComponent } from './post/post-list/post-list.component';
 import { MyProfileComponent } from './user/my-profile/my-profile.component';
+import { EditPostComponent } from './post/edit-post/edit-post.component';
 
 const routes: Routes = [
   {
@@ -28,8 +29,11 @@ const routes: Routes = [
         path: "my-profile", component: MyProfileComponent
       },
       {
-        path: "create-post", component: CreatePostComponent
+        path: "post/create-post", component: CreatePostComponent
       },
+      {
+        path: "post/edit/:slug", component: EditPostComponent
+      }
     ]
   },
   {

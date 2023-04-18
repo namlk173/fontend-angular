@@ -54,7 +54,7 @@
               class="list-inline-item ml-auto"
               *ngIf="post.owner._id === user.id"
             >
-              <a class="text-warning" href="#!">
+              <a class="text-warning" [routerLink]="'/home/post/edit/' + post._id">
                 <button class="btn btn-outline text-warning">
                   <i class="fa fa-pen-to-square g-pos-rel g-top-1 g-mr-3"></i>
                   Edit

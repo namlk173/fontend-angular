@@ -1,3 +1,8 @@
+<app-message
+  *ngIf="response.status && response.message"
+  [status]="(response.status)"
+  [message]="(response.message)"
+></app-message>
 <div class="container rounded bg-white mt-5 mb-5">
   <div class="row">
     <div class="col-md-3 border-right">
@@ -113,12 +118,6 @@
               placeholder="state"
             />
           </div>
-        </div>
-        <div>
-          <p class="text-center mt-3 text-success">{{ responseSuccess }}</p>
-        </div>
-        <div>
-          <p class="text-center mt-3 text-danger">{{ responseErr }}</p>
         </div>
         <div class="mt-5 text-center">
           <button
